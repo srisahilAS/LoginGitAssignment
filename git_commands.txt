@@ -1,0 +1,90 @@
+GIT COMMANDS USED IN THE ASSIGNMENT
+====================================
+
+1. Create and enter the project folder:
+   mkdir LoginGitAssignment
+   cd LoginGitAssignment
+   Creates the project folder and moves the terminal into it.
+
+2. Initialize the local repository:
+   git init
+   git branch -M main
+   Initializes Git and names the main branch "main".
+
+3. (Only if Git has no author identity configured on this computer):
+   git config --global user.name "Your Name"
+   git config --global user.email "your-email@example.com"
+   Sets the name and email recorded in your commits. Use your own details.
+
+4. Check repository status:
+   git status
+   Shows changed, staged, and untracked files.
+
+5. Stage and create the first commit:
+   git add index.html about.html
+   git commit -m "Initial project structure"
+   Stages the two HTML files and records the initial project version.
+
+6. Edit index.html, then create the second commit:
+   git add index.html
+   git commit -m "Update home page content"
+   Records the home page modification.
+
+7. Create and switch to the feature branch:
+   git branch feature
+   git switch feature
+   Creates the feature branch and switches to it.
+
+8. Edit about.html on the feature branch, then commit:
+   git add about.html
+   git commit -m "Add feature page details"
+   Records the feature change on the feature branch.
+
+9. Switch back to main and merge feature:
+   git switch main
+   git merge --no-ff feature -m "Merge feature branch"
+   Merges the feature branch into main and creates a visible merge commit.
+
+10. Display the commit history:
+    git log --oneline --graph --decorate --all
+    Displays commits, branch labels, and the merge graph.
+
+11. Add .gitignore:
+    git add .gitignore
+    git commit -m "Add gitignore rules"
+    Records rules that ignore .log files and the temp folder.
+
+12. Demonstrate ignored files:
+    mkdir temp
+    (PowerShell) "sample log" | Out-File debug.log
+    git status --short
+    git check-ignore debug.log temp/
+    Confirms the log file and temp folder are ignored.
+
+13. Make an additional commit:
+    (PowerShell) "Temporary demonstration file" | Out-File temporary.txt
+    git add temporary.txt
+    git commit -m "Add temporary file"
+
+14. Undo the last commit:
+    git revert --no-edit HEAD
+    Creates a new commit that reverses the temporary-file commit.
+
+15. Verify the undo:
+    git status
+    Test-Path temporary.txt
+    git log --oneline --graph --decorate --all
+    The PowerShell Test-Path command should return False; the working tree should be clean.
+
+16. Connect to GitHub and push:
+    git remote add origin https://github.com/YOUR-USERNAME/login-git-assignment.git
+    git remote -v
+    git push -u origin main
+    git push -u origin feature
+    Connects the local repository and pushes both branches. Replace YOUR-USERNAME.
+
+17. Add the command documentation file to the repository:
+    git add git_commands.txt
+    git commit -m "Add Git command documentation"
+    git push
+    Commits and pushes the command reference file.
